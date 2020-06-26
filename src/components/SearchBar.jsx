@@ -8,7 +8,7 @@ const SearchBar = ({
   handleSearchClick}) => {
 
   return (
-    <div>
+    <div class="all">
       {/* <input className='searchBar-input' value={searchValue} onChange={handleInputChange} /> */}
       
       <label for="departure">Choose departure:</label>
