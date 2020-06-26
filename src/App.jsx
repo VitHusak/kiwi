@@ -11,6 +11,7 @@ const spinner = () => {
 
 const url = 'https://api.skypicker.com/flights?flyFrom=PRG&to=LGW&dateFrom=18/11/2020&dateTo=12/12/2020&partner=picky&v=3'
 
+
 const basicUrl = 'https://api.skypicker.com/flights'
 function App() {
   const [flights, setFlights] = useState([]);
@@ -19,6 +20,7 @@ function App() {
   const [searchValueTo, setSearchValueTo] = useState('');
   const [dateFrom, setDateFrom] = useState('');
   const [dateTo, setDateTo] = useState('');
+  const [currentOffset, setCurrentOffset] = useState(0);
 
   const fetchFlights =  async () => {
     setLoading(true);
@@ -27,7 +29,7 @@ function App() {
     console.log(searchValueFrom)
     console.log(dateTo)
     console.log(dateFrom)
-    const response = await fetch(`https://api.skypicker.com/flights?flyFrom=${searchValueFrom}&to=${searchValueTo}&dateFrom=${dateFrom}&dateTo=${dateFrom}&returnFrom=${dateTo}&returnTo=${dateTo}&partner=picky&v=3`);
+    const response = await fetch(`${basicUrl}/flights?flyFrom=${searchValueFrom}&to=${searchValueTo}&dateFrom=${dateFrom}&dateTo=${dateFrom}&partner=picky&v=3`);
     
     const data = await response.json();
     setLoading(false)
