@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.flight-display {
+  border: 5px;
+  display: flex;
+  border: 1px black solid;
+  justify-content: space-around;
+}
+
+.price {
+  align-self: center;
+}
