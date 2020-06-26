@@ -100,6 +100,7 @@ function App() {
           <h3>Price: {flight.price} EUR</h3>
         </div>)
     }) : (<p>no flights now</p>)}
+    {/* Jade what are you doing?!! */}
 
   </>
   );
