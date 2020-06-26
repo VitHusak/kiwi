@@ -9,11 +9,9 @@ const spinner = () => {
   return <Spinner color="success" />
 }
 
-// const url = 'https://api.skypicker.com/flights?flyFrom=PRG&to=LGW&dateFrom=18/11/2020&dateTo=12/12/2020&partner=picky&v=3'
+const url = 'https://api.skypicker.com/flights?flyFrom=PRG&to=LGW&dateFrom=18/11/2020&dateTo=12/12/2020&partner=picky&v=3'
 
-// const basicUrl = 'https://api.skypicker.com/flights'
-
-
+const basicUrl = 'https://api.skypicker.com/flights'
 function App() {
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -39,12 +37,10 @@ function App() {
   // useEffect(() => fetchFlight(), []);
 
   const handleInputChangeFrom = (e) => {
-    console.log(e.target.value);
     setSearchValueFrom(e.target.value);
 
   }
   const handleInputChangeTo = (e) => {
-    console.log(e.target.value);
     setSearchValueTo(e.target.value);
 
   }
@@ -71,6 +67,10 @@ function App() {
     <h1>KIWI</h1>
 
     <SearchBar 
+      searchValueFrom={searchValueFrom}
+      searchValueFrom={searchValueTo}
+      dateFrom={dateFrom}
+      dateTo={dateTo}
       handleInputChangeFrom={handleInputChangeFrom}
       handleInputChangeTo={handleInputChangeTo}
       handleInputChangeDateFrom={handleInputChangeDateFrom}
@@ -79,30 +79,25 @@ function App() {
     />
 
     {loading ? <Spinner /> : null}
-
     {(flights && flights.length > 0) ? flights.map((flight) => {
         return (
-        
         <div class="flight-display">
           <div class="from">
           <h3>From: {flight.cityFrom}</h3>
-          <h3>{flight.cityCodeFrom}</h3>
-          <h3>Time: {DateTime.fromMillis(flight.dTime * 1000).toFormat('hh:mm')}</h3>
-          <h3>Date: {DateTime.fromMillis(flight.aTime * 1000).toFormat('dd/MM/yyyy')}</h3>
-          {/* <h3>date: {dateFrom}</h3> */}
-        </div>
+          <p>{flight.cityCodeFrom}</p>
+          <p>Time: {DateTime.fromMillis(flight.dTime * 1000).toFormat('hh:mm')}</p>
+          <p>dat -- {flight.dateFrom}</p>
+          </div>
 
           <div class="to">
           <h3>To: {flight.cityTo}</h3>
-          <h3>{flight.cityCodeTo}</h3>
-          <h3>Time: {DateTime.fromMillis(flight.aTime * 1000).toFormat('hh:mm')}</h3>
-          <h3>Date: {DateTime.fromMillis(flight.aTime * 1000).toFormat('dd/MM/yyyy')}</h3>
-          {/* <h3>date: {dateTo}</h3> */}
+          <p>{flight.cityCodeTo}</p>
+          <p>Time: {DateTime.fromMillis(flight.aTime * 1000).toFormat('hh:mm')}</p>
+          <p>date -- {flight.dateTo}</p>
           </div>
 
-          <div class="price">
+          <div class="price"></div>
           <h3>Price: {flight.price} EUR</h3>
-          </div>
         </div>)
     }) : (<p>no flights now</p>)}
 
