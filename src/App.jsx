@@ -14,7 +14,7 @@ const url = 'https://api.skypicker.com/flights?flyFrom=PRG&to=LGW&dateFrom=18/11
 
 const basicUrl = 'https://api.skypicker.com/flights'
 function App() {
-  const [flights, setFlights] = useState([]);
+  const [flights, setFlights] = useState();
   const [loading, setLoading] = useState(false);
   const [searchValueFrom, setSearchValueFrom] = useState('');
   const [searchValueTo, setSearchValueTo] = useState('');
@@ -33,6 +33,7 @@ function App() {
     const response = await fetch(`${basicUrl}?flyFrom=${searchValueFrom}&to=${searchValueTo}&dateFrom=${dateFrom}&dateTo=${dateFrom}&partner=picky&v=3`);
     
     const data = await response.json();
+    console.log(data.data)
     setLoading(false)
     setFlights(data.data)
   }
@@ -89,7 +90,7 @@ function App() {
       handleInputChangeDirect={handleInputChangeDirect}
     />
 
-    {loading ? <Spinner /> : null}
+    {loading ? <Spinner /> : null }
     {(flights && flights.length > 0) ? flights.map((flight) => {
         return (
         <div class="flight-display">
@@ -104,13 +105,15 @@ function App() {
           <h3>To: {flight.cityTo}</h3>
           <p>{flight.cityCodeTo}</p>
           <p>Arrival Time: {DateTime.fromMillis(flight.aTime * 1000).toFormat('hh:mm')}</p>
-          <h3>Date: {DateTime.fromMillis(flight.aTime * 1000).toFormat('dd/MM/yyyy')}</h3>
+          {/* <h3>Date: {DateTime.fromMillis(flight.aTime * 1000).toFormat('dd/MM/yyyy')}</h3> */}
           </div>
 
           <div class="price"></div>
           <h3>Price: {flight.price} EUR</h3>
         </div>)
-    }) : (<p>no flights now</p>)}
+    }) : null } 
+
+    {flights && flights.length === 0 ? (<p>no flights</p>) : null}
     {/* Jade what are you doing?!! */}
 
   </>

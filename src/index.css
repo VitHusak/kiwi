@@ -22,3 +22,12 @@ code {
 .price {
   align-self: center;
 }
+
+h1 {
+  text-align: center;
+  padding: 1em;
+}
+
+.all {
+  text-align: center;
+}
