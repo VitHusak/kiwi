@@ -22,12 +22,15 @@ function App() {
 
   const fetchFlights =  async () => {
     setLoading(true);
-    const response = await fetch(url);
+
+    console.log(searchValueTo)
+    console.log(searchValueFrom)
+    console.log(dateTo)
+    console.log(dateFrom)
+    const response = await fetch(`https://api.skypicker.com/flights?flyFrom=${searchValueFrom}&to=${searchValueTo}&dateFrom=${dateFrom}&dateTo=${dateTo}&partner=picky&v=3`);
+    
     const data = await response.json();
     setLoading(false)
-    
-    console.log(data.data[0].aTime);
-
     setFlights(data.data)
   }
 
@@ -43,12 +46,13 @@ function App() {
   }
   
   const handleInputChangeDateFrom = (e) => {
-    setDateFrom(e.target.value);
-
+    //setDateFrom(e.target.value);
+    setDateFrom(e.target.value.slice(0, 10).split('-').reverse().join('/'))
   }
   
   const handleInputChangeDateTo = (e) => {
-    setDateTo(e.target.value);
+    //setDateTo(e.target.value);
+    setDateTo(e.target.value.slice(0, 10).split('-').reverse().join('/'))
 
   }
   
@@ -81,11 +85,13 @@ function App() {
           <h3>From: {flight.cityFrom}</h3>
           <h3>{flight.cityCodeFrom}</h3>
           <h3>Time: {DateTime.fromMillis(flight.dTime * 1000).toFormat('hh:mm')}</h3>
+          <h3>dat -- {flight.dateFrom}</h3>
 
           
           <h3>To: {flight.cityTo}</h3>
           <h3>{flight.cityCodeTo}</h3>
           <h3>Time: {DateTime.fromMillis(flight.aTime * 1000).toFormat('hh:mm')}</h3>
+          <h3>date -- {flight.dateTo}</h3>
 
          
           <h3>Price: {flight.price} EUR</h3>

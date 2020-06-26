@@ -18,11 +18,11 @@ const SearchBar = ({
       <label for="departure">Choose departure:</label>
 
       <select name="departure" id="departure" value={searchValueFrom} onChange={handleInputChangeFrom}>
-        <option value="valencia">Valencia</option>
-        <option value="barcelona">Barcelona</option>
-        <option value="madrid">Madrid</option>
-        <option value="milano">Milano</option>
-        <option value="athens">Athens</option>
+       <option value="PRG">Prague</option>
+        <option value="TXL">Berlin</option>
+        <option value="WAW">Warsaw</option>
+        <option value="PED">Pardubice</option>
+        
       </select>
 
       <label for='dateFrom'>Date from:</label>
@@ -31,15 +31,15 @@ const SearchBar = ({
       <label for="destination">Choose destination:</label>
 
       <select name="destination" id="destination" value={searchValueTo} onChange={handleInputChangeTo}>
-        <option value="valencia">Valencia</option>
-        <option value="barcelona">Barcelona</option>
-        <option value="madrid">Madrid</option>
-        <option value="milano">Milano</option>
-        <option value="athens">Athens</option>
+        <option value="VLC">Valencia</option>
+        <option value="BCN">Barcelona</option>
+        <option value="MAD">Madrid</option>
+        <option value="MXP">Milano</option>
+        <option value="ATH">Athens</option>
       </select>
 
       <label for='dateTo'>Date to:</label>
-      <input type="date" id="dateTo" value={dateTo} onChange={handleInputChangeDateTo}/>
+      <input type="date" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" title="dd/mm/yyyy" id="dateTo" value={dateTo} onChange={handleInputChangeDateTo}/>
 
 
 
