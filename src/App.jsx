@@ -81,20 +81,24 @@ function App() {
     {loading ? <Spinner /> : null}
     {(flights && flights.length > 0) ? flights.map((flight) => {
         return (
-        <div>
+        <div class="flight-display">
+          <div class="from">
           <h3>From: {flight.cityFrom}</h3>
-          <h3>{flight.cityCodeFrom}</h3>
-          <h3>Time: {DateTime.fromMillis(flight.dTime * 1000).toFormat('hh:mm')}</h3>
-          <h3>dat -- {flight.dateFrom}</h3>
+          <p>{flight.cityCodeFrom}</p>
+          <p>Time: {DateTime.fromMillis(flight.dTime * 1000).toFormat('hh:mm')}</p>
+          <p>dat -- {flight.dateFrom}</p>
+          </div>
 
-          
+          <div class="to">
           <h3>To: {flight.cityTo}</h3>
-          <h3>{flight.cityCodeTo}</h3>
-          <h3>Time: {DateTime.fromMillis(flight.aTime * 1000).toFormat('hh:mm')}</h3>
-          <h3>date -- {flight.dateTo}</h3>
+          <p>{flight.cityCodeTo}</p>
+          <p>Time: {DateTime.fromMillis(flight.aTime * 1000).toFormat('hh:mm')}</p>
+          <p>date -- {flight.dateTo}</p>
+          </div>
 
-         
+          <div class="price">
           <h3>Price: {flight.price} EUR</h3>
+          </div>
         </div>)
     }) : (<p>no flights now</p>)}
 
