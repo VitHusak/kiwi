@@ -34,7 +34,8 @@ function App() {
     <h1>KIWI</h1>
     {loading ? <Spinner /> : null}
     {(flights && flights.length > 0) ? flights.map((flight) => {
-        return (<div>
+        return (
+        <div>
           <h3>From: {flight.cityFrom}</h3>
           <h3>{flight.cityCodeFrom}</h3>
           <h3>Time: {DateTime.fromMillis(flight.dTime * 1000).toFormat('hh:mm')}</h3>
@@ -45,8 +46,8 @@ function App() {
           <h3>Time: {DateTime.fromMillis(flight.aTime * 1000).toFormat('hh:mm')}</h3>
 
          
-          <h3>Price: £{flight.price}</h3>
-       </div>)
+          <h3>Price: {flight.price} EUR</h3>
+        </div>)
     }) : (<p>no flights now</p>)}
 
   </>
