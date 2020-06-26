@@ -85,14 +85,14 @@ function App() {
           <div class="from">
           <h3>From: {flight.cityFrom}</h3>
           <p>{flight.cityCodeFrom}</p>
-          <p>Time: {DateTime.fromMillis(flight.dTime * 1000).toFormat('hh:mm')}</p>
+          <p>Depature Time: {DateTime.fromMillis(flight.dTime * 1000).toFormat('hh:mm')}</p>
           <h3>Date: {DateTime.fromMillis(flight.dTime * 1000).toFormat('dd/MM/yyyy')}</h3>
           </div>
 
           <div class="to">
           <h3>To: {flight.cityTo}</h3>
           <p>{flight.cityCodeTo}</p>
-          <p>Time: {DateTime.fromMillis(flight.aTime * 1000).toFormat('hh:mm')}</p>
+          <p>Arrival Time: {DateTime.fromMillis(flight.aTime * 1000).toFormat('hh:mm')}</p>
           <h3>Date: {DateTime.fromMillis(flight.aTime * 1000).toFormat('dd/MM/yyyy')}</h3>
           </div>
 

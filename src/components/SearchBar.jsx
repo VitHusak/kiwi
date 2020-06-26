@@ -19,8 +19,7 @@ const SearchBar = ({
         <option value="PED">Pardubice</option>
       </select>
 
-      <label for='dateFrom'>Date from:</label>
-      <input type="date" id="dateFrom"  onChange={handleInputChangeDateFrom}/>
+      
       
       <label for="destination">Choose destination:</label>
 
@@ -32,7 +31,12 @@ const SearchBar = ({
         <option value="ATH">Athens</option>
       </select>
 
-      <label for='dateTo'>Date to:</label>
+      <br></br>
+
+      <label for='dateFrom'>Departing between</label>
+      <input type="date" id="dateFrom"  onChange={handleInputChangeDateFrom}/>
+
+      <label for='dateTo'>and</label>
       <input type="date" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" title="dd/mm/yyyy" id="dateTo"  onChange={handleInputChangeDateTo}/>
 
 
