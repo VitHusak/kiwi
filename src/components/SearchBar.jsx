@@ -5,7 +5,8 @@ const SearchBar = ({
   handleInputChangeTo,
   handleInputChangeDateFrom,
   handleInputChangeDateTo,
-  handleSearchClick}) => {
+  handleSearchClick,
+  handleInputChangeDirect}) => {
 
   return (
     <div>
@@ -41,8 +42,11 @@ const SearchBar = ({
       <label for='dateTo'>and</label>
       <input type="date" required pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" title="dd/mm/yyyy" id="dateTo"  onChange={handleInputChangeDateTo}/>
 
+      <input type="checkbox" id="direct" name="direct" value="true" onChange={handleInputChangeDirect}/>
+      <label for="vehicle1">Direct flight?</label>
 
 
+      <br/>
       <button className='searchBar-button' onClick={handleSearchClick}>Search for flight</button>
     </div>
   )

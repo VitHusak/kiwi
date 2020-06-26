@@ -21,6 +21,7 @@ function App() {
   const [dateFrom, setDateFrom] = useState('');
   const [dateTo, setDateTo] = useState('');
   const [currentOffset, setCurrentOffset] = useState(0);
+  const [direct, setdirect] = useState(false);
 
   const fetchFlights =  async () => {
     setLoading(true);
@@ -57,6 +58,13 @@ function App() {
     setDateTo(e.target.value.slice(0, 10).split('-').reverse().join('/'))
 
   }
+
+  const handleInputChangeDirect = (e) => {
+    console.log(e.target.value)
+
+  }
+
+
   
   const handleSearchClick = () => {
     fetchFlights();
@@ -78,6 +86,7 @@ function App() {
       handleInputChangeDateFrom={handleInputChangeDateFrom}
       handleInputChangeDateTo={handleInputChangeDateTo}
       handleSearchClick={handleSearchClick}
+      handleInputChangeDirect={handleInputChangeDirect}
     />
 
     {loading ? <Spinner /> : null}
