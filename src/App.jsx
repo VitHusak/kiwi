@@ -27,7 +27,7 @@ function App() {
     console.log(searchValueFrom)
     console.log(dateTo)
     console.log(dateFrom)
-    const response = await fetch(`https://api.skypicker.com/flights?flyFrom=${searchValueFrom}&to=${searchValueTo}&dateFrom=${dateFrom}&dateTo=${dateTo}&partner=picky&v=3`);
+    const response = await fetch(`https://api.skypicker.com/flights?flyFrom=${searchValueFrom}&to=${searchValueTo}&dateFrom=${dateFrom}&dateTo=${dateFrom}&returnFrom=${dateTo}&returnTo=${dateTo}&partner=picky&v=3`);
     
     const data = await response.json();
     setLoading(false)
