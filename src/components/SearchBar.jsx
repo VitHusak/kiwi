@@ -12,7 +12,8 @@ const SearchBar = ({
       {/* <input className='searchBar-input' value={searchValue} onChange={handleInputChange} /> */}
       
       <label for="departure">Choose departure:</label>
-      <select name="departure" id="departure"  onChange={handleInputChangeFrom}>
+      <select name="departure" id="departure" onChange={handleInputChangeFrom}>
+        <option>select city</option>
         <option value="PRG">Prague</option>
         <option value="TXL">Berlin</option>
         <option value="WAW">Warsaw</option>
@@ -23,7 +24,8 @@ const SearchBar = ({
       
       <label for="destination">Choose destination:</label>
 
-      <select name="destination" id="destination"  onChange={handleInputChangeTo}>
+      <select name="destination" id="destination" onChange={handleInputChangeTo}>
+        <option>select city</option>
         <option value="VLC">Valencia</option>
         <option value="BCN">Barcelona</option>
         <option value="MAD">Madrid</option>
